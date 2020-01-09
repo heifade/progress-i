@@ -27,7 +27,6 @@ describe("index", function() {
     for (let i = 0; i < 100; i++) {
       await delay(100);
       p.setValue(i);
-      p.render();
     }
     p.finish();
   });
