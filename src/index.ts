@@ -1,37 +1,60 @@
 import { stdout } from "single-line-log";
 
+/**
+ * 进度条
+ */
 export class ProgressBar {
   private value: number = 0;
   private total: number = 0;
   private width: number;
   private title: string;
 
+  /**
+   * 构造函数
+   * @param title 标题
+   * @param width 宽度
+   */
   constructor(title: string, width: number) {
     this.width = width;
     this.title = title;
   }
 
-  setValue(value: number) {
+  /**
+   * 设置进度值
+   * @param value 进度值
+   */
+  public setValue(value: number) {
     this.value = value;
     this.render();
   }
 
-  addValue(value: number) {
+  /**
+   * 进度值加一个值
+   * @param value
+   */
+  public addValue(value: number) {
     this.value += value;
     this.render();
   }
 
-  setTotal(value: number) {
+  /**
+   * 设置最大值
+   * @param value 最大值
+   */
+  public setTotal(value: number) {
     this.total = value;
     this.render();
   }
 
-  finish() {
+  /**
+   * 完成，将进度值设为最大值 100%
+   */
+  public finish() {
     this.value = this.total;
     this.render();
   }
 
-  render() {
+  private render() {
     if (this.total > 0 && this.value > 0) {
       const value = this.value > this.total ? this.total : this.value;
       const percent = Number((value / this.total).toFixed(4)); // 计算进度(子任务的 完成数 除以 总数)
