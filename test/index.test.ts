@@ -21,13 +21,14 @@ describe("index", function() {
   });
 
   it("ProgressBar ", async () => {
-    const p = new ProgressBar("进度", 100);
-    p.setTotal(3);
+    const p = new ProgressBar("进度", 50);
+    p.setTotal(100);
 
-    for (let i = 0; i < 4; i++) {
-      await delay(300);
+    for (let i = 0; i < 100; i++) {
+      await delay(100);
       p.setValue(i);
       p.render();
     }
+    p.finish();
   });
 });
