@@ -55,7 +55,7 @@ export class ProgressBar {
   }
 
   private render() {
-    if (this.total > 0 && this.value > 0) {
+    if (this.total > 0) {
       const value = this.value > this.total ? this.total : this.value;
       const percent = Number((value / this.total).toFixed(4)); // 计算进度(子任务的 完成数 除以 总数)
       const cell_num = Math.floor(percent * this.width); // 计算需要多少个 > 符号来拼凑图案
