@@ -1,4 +1,4 @@
-import { stdout } from "single-line-log";
+import { stdout } from "./singleLineLog";
 
 /**
  * 进度条

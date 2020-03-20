@@ -30,4 +30,15 @@ describe("index", function() {
     }
     p.finish();
   });
+
+  it("ProgressBar add", async () => {
+    const p = new ProgressBar("进度", 50);
+    p.setTotal(100);
+
+    for (let i = 0; i < 100; i++) {
+      await delay(100);
+      p.addValue(1);
+    }
+    p.finish();
+  });
 });
