@@ -34,6 +34,7 @@ export class ProgressBar {
   /**
    * 进度值加一个值
    * @param value
+   * @param message 消息文字
    */
   public addValue(value: number, message?: string) {
     this.value += value;
@@ -52,6 +53,7 @@ export class ProgressBar {
 
   /**
    * 完成，将进度值设为最大值 100%
+   * @param message 消息文字
    */
   public finish(message?: string) {
     this.value = this.total;
