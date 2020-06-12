@@ -8,6 +8,7 @@ export class ProgressBar {
   private total: number = 0;
   private width: number;
   private title: string;
+  private message: string;
 
   /**
    * 构造函数
@@ -22,9 +23,11 @@ export class ProgressBar {
   /**
    * 设置进度值
    * @param value 进度值
+   * @param message 消息文字
    */
-  public setValue(value: number) {
+  public setValue(value: number, message?: string) {
     this.value = value;
+    this.message = message;
     this.render();
   }
 
@@ -32,8 +35,9 @@ export class ProgressBar {
    * 进度值加一个值
    * @param value
    */
-  public addValue(value: number) {
+  public addValue(value: number, message?: string) {
     this.value += value;
+    this.message = message;
     this.render();
   }
 
@@ -49,8 +53,9 @@ export class ProgressBar {
   /**
    * 完成，将进度值设为最大值 100%
    */
-  public finish() {
+  public finish(message?: string) {
     this.value = this.total;
+    this.message = message;
     this.render();
   }
 
@@ -75,7 +80,7 @@ export class ProgressBar {
       // 拼接最终文本
       const cmdText = `${this.title}: ${(100 * percent).toFixed(
         2
-      )}% ${cell}${empty} ${value}/${this.total}`;
+      )}% ${cell}${empty} ${value}/${this.total} ${this.message}`;
 
       // 在单行输出文本
       stdout(cmdText);

@@ -10,7 +10,7 @@ async function delay(mills: number) {
   });
 }
 
-describe("index", function() {
+describe("index", function () {
   before(() => {
     // clearTestFiles();
     // initTestFiles();
@@ -26,9 +26,9 @@ describe("index", function() {
 
     for (let i = 0; i < 100; i++) {
       await delay(100);
-      p.setValue(i);
+      p.setValue(i, `正在处理:${i}`);
     }
-    p.finish();
+    p.finish("完成");
   });
 
   it("ProgressBar add", async () => {
@@ -37,8 +37,8 @@ describe("index", function() {
 
     for (let i = 0; i < 100; i++) {
       await delay(100);
-      p.addValue(1);
+      p.addValue(1, `正在处理中...`);
     }
-    p.finish();
+    p.finish("完成");
   });
 });
