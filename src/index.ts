@@ -82,7 +82,7 @@ export class ProgressBar {
       // 拼接最终文本
       const cmdText = `${this.title}: ${(100 * percent).toFixed(
         2
-      )}% ${cell}${empty} ${value}/${this.total} ${this.message}`;
+      )}% ${cell}${empty} ${value}/${this.total} ${this.message || ""}`;
 
       // 在单行输出文本
       stdout(cmdText);
