@@ -31,6 +31,10 @@ export class ProgressBar {
     this.render();
   }
 
+  public getValue() {
+    return this.value;
+  }
+
   /**
    * 进度值加一个值
    * @param value
